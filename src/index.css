@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Baloo 2", "Nunito Sans", system-ui, sans-serif;
+  --font-body: "Nunito Sans", system-ui, sans-serif;
+
+  --color-green-900: #024d28;
+  --color-green-700: #0a6b3d;
+  --color-green-500: #92b051;
+  --color-green-50: #edf4ec;
+
+  --color-gold-600: #e1a302;
+  --color-gold-400: #f7c043;
+
+  --color-brown-700: #866205;
+
+  --color-ink-900: #202020;
+  --color-bg-0: #ffffff;
+  --color-bg-50: #faf8f2;
+
+  --color-whatsapp: #25d366;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--color-ink-900);
+  background-color: var(--color-bg-50);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-gold-600);
+  outline-offset: 2px;
+}
