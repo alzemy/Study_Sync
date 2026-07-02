@@ -43,3 +43,53 @@ h4 {
   outline: 3px solid var(--color-gold-600);
   outline-offset: 2px;
 }
+
+@keyframes shake {
+  10%,
+  90% {
+    transform: translateX(-1px);
+  }
+  20%,
+  80% {
+    transform: translateX(2px);
+  }
+  30%,
+  50%,
+  70% {
+    transform: translateX(-4px);
+  }
+  40%,
+  60% {
+    transform: translateX(4px);
+  }
+}
+
+.animate-shake {
+  animation: shake 0.4s ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-shake {
+    animation: none;
+  }
+}
+
+@keyframes whatsapp-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(37, 211, 102, 0);
+  }
+}
+
+.whatsapp-cta {
+  animation: whatsapp-glow 2.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp-cta {
+    animation: none;
+  }
+}

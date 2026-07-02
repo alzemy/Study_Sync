@@ -1,3 +1,4 @@
+import { motion, useReducedMotion } from "framer-motion";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { useAssessment } from "../lib/AssessmentContext";
@@ -8,28 +9,52 @@ const COUNSELORS = [
   { name: "Putri Lilla", initials: "PL", color: "var(--color-gold-600)" },
 ];
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 16 },
+  show: { opacity: 1, y: 0 },
+};
+
 export default function Konsultasi() {
   const { identity } = useAssessment();
   const link = buildWhatsappLink(identity);
+  const reduceMotion = useReducedMotion();
 
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
       <main className="flex-1 px-4 py-8">
         <div className="mx-auto max-w-lg text-center">
-          <h1 className="font-display text-2xl font-extrabold sm:text-3xl" style={{ color: "var(--color-green-900)" }}>
+          <motion.h1
+            initial={reduceMotion ? undefined : "hidden"}
+            animate={reduceMotion ? undefined : "show"}
+            variants={fadeUp}
+            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+            className="font-display text-2xl font-extrabold sm:text-3xl"
+            style={{ color: "var(--color-green-900)" }}
+          >
             Konsultasi Konselor
-          </h1>
-          <p className="mt-3 text-sm text-black/70">
+          </motion.h1>
+          <motion.p
+            initial={reduceMotion ? undefined : "hidden"}
+            animate={reduceMotion ? undefined : "show"}
+            variants={fadeUp}
+            transition={{ duration: 0.45, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-3 text-sm text-black/70"
+          >
             Ingin mengetahui hasil asesmen lebih mendalam? Hubungi konselor StudySync untuk
             mendapatkan penjelasan dan pendampingan yang tepat.
-          </p>
+          </motion.p>
 
           <div className="mt-10 flex flex-col gap-5">
-            {COUNSELORS.map((counselor) => (
-              <div
+            {COUNSELORS.map((counselor, i) => (
+              <motion.div
                 key={counselor.name}
-                className="flex flex-col items-center gap-4 rounded-2xl bg-white p-6 shadow-[0_4px_16px_rgba(2,77,40,0.08)] sm:flex-row sm:text-left"
+                initial={reduceMotion ? undefined : "hidden"}
+                animate={reduceMotion ? undefined : "show"}
+                variants={fadeUp}
+                transition={{ duration: 0.45, delay: 0.16 + i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                whileHover={reduceMotion ? undefined : { y: -3 }}
+                className="flex flex-col items-center gap-4 rounded-2xl bg-white p-6 shadow-[0_4px_16px_rgba(2,77,40,0.08)] transition-shadow hover:shadow-[0_8px_24px_rgba(2,77,40,0.14)] sm:flex-row sm:text-left"
               >
                 <div
                   className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full font-display text-lg font-extrabold text-white"
@@ -47,19 +72,25 @@ export default function Konsultasi() {
                   href={link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-display text-sm font-bold text-white transition-transform active:scale-95"
+                  className="whatsapp-cta inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-display text-sm font-bold text-white transition-transform active:scale-95"
                   style={{ backgroundColor: "var(--color-whatsapp)" }}
                 >
                   <WhatsappIcon />
                   Konsultasi via WhatsApp
                 </a>
-              </div>
+              </motion.div>
             ))}
           </div>
 
-          <p className="mt-8 text-xs text-black/50">
+          <motion.p
+            initial={reduceMotion ? undefined : "hidden"}
+            animate={reduceMotion ? undefined : "show"}
+            variants={fadeUp}
+            transition={{ duration: 0.45, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-8 text-xs text-black/50"
+          >
             Kamu akan diarahkan ke aplikasi WhatsApp dengan pesan yang sudah terisi otomatis.
-          </p>
+          </motion.p>
         </div>
       </main>
       <Footer />
