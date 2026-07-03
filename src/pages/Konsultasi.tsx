@@ -1,8 +1,10 @@
+import { useMemo } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { useAssessment } from "../lib/AssessmentContext";
 import { buildWhatsappLink } from "../lib/whatsapp";
+import { scoreAnswers } from "../lib/assessment";
 
 const COUNSELORS = [
   { name: "Silvia Dwi", initials: "SD", color: "var(--color-green-900)" },
@@ -15,8 +17,9 @@ const fadeUp = {
 };
 
 export default function Konsultasi() {
-  const { identity } = useAssessment();
-  const link = buildWhatsappLink(identity);
+  const { identity, answers } = useAssessment();
+  const result = useMemo(() => scoreAnswers(answers), [answers]);
+  const link = buildWhatsappLink(identity, result.dominant?.name);
   const reduceMotion = useReducedMotion();
 
   return (
