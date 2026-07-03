@@ -44,8 +44,8 @@ export default function Konsultasi() {
             transition={{ duration: 0.45, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
             className="mt-3 text-sm text-black/70"
           >
-            Ingin mengetahui hasil asesmen lebih mendalam? Hubungi konselor StudySync untuk
-            mendapatkan penjelasan dan pendampingan yang tepat.
+            Ubah hasil asesmenmu menjadi langkah nyata untuk berkembang bersama Konselor
+            StudySync.
           </motion.p>
 
           <div className="mt-10 flex flex-col gap-5">
@@ -92,8 +92,7 @@ export default function Konsultasi() {
             transition={{ duration: 0.45, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
             className="mt-8 text-xs text-black/50"
           >
-            Ubah hasil asesmenmu menjadi langkah nyata untuk berkembang bersama Konselor
-            StudySync.
+            Kamu akan diarahkan ke aplikasi WhatsApp dengan pesan yang sudah terisi otomatis.
           </motion.p>
         </div>
       </main>
