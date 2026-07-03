@@ -10,7 +10,6 @@ export interface Category {
   name: string;
   color: string;
   description: string;
-  recommendation: string;
 }
 
 export const CATEGORIES: Category[] = [
@@ -20,8 +19,6 @@ export const CATEGORIES: Category[] = [
     color: "var(--color-green-900)",
     description:
       "Kamu cenderung mengerjakan banyak hal sekaligus sehingga fokus terpecah.",
-    recommendation:
-      "Rekomendasi: teknik single-tasking dan sesi belajar terfokus (mis. metode Pomodoro) — konselor kami dapat membantu menyusun strateginya.",
   },
   {
     id: "digital",
@@ -29,8 +26,6 @@ export const CATEGORIES: Category[] = [
     color: "var(--color-gold-600)",
     description:
       "Perangkat digital sering mengambil alih waktu dan konsentrasi belajarmu.",
-    recommendation:
-      "Rekomendasi: manajemen notifikasi dan 'jam bebas gadget' saat belajar.",
   },
   {
     id: "akademik",
@@ -38,24 +33,18 @@ export const CATEGORIES: Category[] = [
     color: "var(--color-brown-700)",
     description:
       "Beban dan tekanan akademik membuatmu lelah, cemas, atau kehilangan semangat.",
-    recommendation:
-      "Rekomendasi: strategi manajemen stres dan pemulihan motivasi belajar bersama konselor.",
   },
   {
     id: "kebiasaan",
     name: "Pola Kebiasaan Belajar",
     color: "var(--color-green-500)",
     description: "Kebiasaan belajarmu belum terbentuk secara konsisten.",
-    recommendation:
-      "Rekomendasi: membangun jadwal dan target belajar yang teratur, sedikit demi sedikit.",
   },
   {
     id: "waktu",
     name: "Pengelolaan Waktu Belajar Buruk",
     color: "var(--color-gold-400)",
     description: "Waktu belajarmu belum terkelola secara efektif.",
-    recommendation:
-      "Rekomendasi: teknik prioritas dan perencanaan waktu belajar harian.",
   },
 ];
 

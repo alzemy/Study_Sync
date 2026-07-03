@@ -149,7 +149,7 @@ export default function Asesmen() {
                   className={inputClass(Boolean(errors.kelas))}
                 >
                   <option value="">Pilih kelas</option>
-                  {["VII", "VIII", "IX", "X", "XI", "XII"].map((kelas) => (
+                  {["VII", "VIII", "IX"].map((kelas) => (
                     <option key={kelas} value={kelas}>
                       Kelas {kelas}
                     </option>

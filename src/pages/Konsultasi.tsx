@@ -92,7 +92,8 @@ export default function Konsultasi() {
             transition={{ duration: 0.45, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
             className="mt-8 text-xs text-black/50"
           >
-            Kamu akan diarahkan ke aplikasi WhatsApp dengan pesan yang sudah terisi otomatis.
+            Ubah hasil asesmenmu menjadi langkah nyata untuk berkembang bersama Konselor
+            StudySync.
           </motion.p>
         </div>
       </main>

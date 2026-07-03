@@ -146,7 +146,9 @@ export default function Hasil() {
               >
                 <p className="text-sm text-black/70">{result.dominant.description}</p>
                 <p className="mt-2 text-sm font-semibold text-black/85">
-                  {result.dominant.recommendation}
+                  Yuk, lanjut konsultasikan hasil asesmenmu bersama konselor StudySync untuk
+                  mendapatkan interpretasi yang mendalam serta rekomendasi strategi yang sesuai
+                  kebutuhanmu.
                 </p>
               </motion.div>
             </>
