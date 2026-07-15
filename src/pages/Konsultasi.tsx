@@ -5,11 +5,25 @@ import Footer from "../components/Footer";
 import { useAssessment } from "../lib/AssessmentContext";
 import { buildWhatsappLink } from "../lib/whatsapp";
 import { scoreAnswers } from "../lib/assessment";
+import putriPhoto from "../assets/konselor-putri.png";
+import silviaPhoto from "../assets/konselor-silvia.png";
 
-const COUNSELORS = [
-  { name: "Silvia Dwi", initials: "SD", color: "var(--color-green-900)" },
-  { name: "Putri Lilla", initials: "PL", color: "var(--color-gold-600)" },
+type Counselor = {
+  name: string;
+  initials: string;
+  color: string;
+  photo?: string;
+};
+
+const COUNSELORS: Counselor[] = [
+  { name: "Silvia Dwi", initials: "SD", color: "var(--color-green-900)", photo: silviaPhoto },
+  { name: "Putri Lilla", initials: "PL", color: "var(--color-gold-600)", photo: putriPhoto },
 ];
+
+// Foto profil konselor (opsional). Isi dengan import gambar, contoh:
+//   import silviaPhoto from "../assets/konselor-silvia.jpg";
+//   { name: "Silvia Dwi", initials: "SD", color: "...", photo: silviaPhoto }
+// Kalau `photo` kosong, avatar jatuh ke inisial otomatis.
 
 const fadeUp = {
   hidden: { opacity: 0, y: 16 },
@@ -59,12 +73,11 @@ export default function Konsultasi() {
                 whileHover={reduceMotion ? undefined : { y: -3 }}
                 className="flex flex-col items-center gap-4 rounded-2xl bg-white p-6 shadow-[0_4px_16px_rgba(2,77,40,0.08)] transition-shadow hover:shadow-[0_8px_24px_rgba(2,77,40,0.14)] sm:flex-row sm:text-left"
               >
-                <div
-                  className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full font-display text-lg font-extrabold text-white"
-                  style={{ backgroundColor: counselor.color }}
-                >
-                  {counselor.initials}
-                </div>
+                <CounselorAvatar
+                  photo={counselor.photo}
+                  initials={counselor.initials}
+                  color={counselor.color}
+                />
                 <div className="flex-1">
                   <p className="text-xs font-semibold uppercase tracking-wide text-black/50">
                     Konselor
@@ -97,6 +110,34 @@ export default function Konsultasi() {
         </div>
       </main>
       <Footer />
+    </div>
+  );
+}
+
+function CounselorAvatar({
+  photo,
+  initials,
+  color,
+}: {
+  photo?: string;
+  initials: string;
+  color: string;
+}) {
+  if (photo) {
+    return (
+      <img
+        src={photo}
+        alt={`Foto konselor ${initials}`}
+        className="h-16 w-16 shrink-0 rounded-full object-cover"
+      />
+    );
+  }
+  return (
+    <div
+      className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full font-display text-lg font-extrabold text-white"
+      style={{ backgroundColor: color }}
+    >
+      {initials}
     </div>
   );
 }
